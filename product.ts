@@ -1,7 +1,8 @@
-export class Product {          // map the json data 
-    constructor(
-        public id:number,
-        public name:string,
+export class Product {          //map to json data. 
+    constructor(public id:number,
+        public title:string,
         public price:number,
-        public image:string){}
+        public description:string,
+        public images:Array<string>
+        ){}
 }

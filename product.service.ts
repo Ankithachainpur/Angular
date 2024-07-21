@@ -1,39 +1,26 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Product } from './product';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root'    // equal to app.module.ts file in provider section 
 })
 export class ProductService {
 
-  constructor(public http:HttpClient) { }  // DI for HttpClient 
+  constructor(public http:HttpClient) { }   // pre-defined API di which help to access rest api.
 
-  // get for load the data from rest api 
-  loadProductData():Observable<Product[]> {
-    return this.http.get<Product[]>("http://localhost:3000/products");
+  // loadFakeProduct(): void {
+  //   this.http.get("https://api.escuelajs.co/api/v1/products").subscribe({
+  //     next:(value:any)=>console.log(value),
+  //     error:(error:any)=>console.log(error),
+  //     complete:()=>console.log("done!")
+  //   });
+  // }
+
+  // converting all json data in list of products. 
+  loadFakeProduct(): Observable<Product[]> {
+    return this.http.get<Product[]>("https://api.escuelajs.co/api/v1/products")
   }
-
-  // post is use store the data
-  // 2 parameter 1st url and 2nd parameter json data ie product data. 
-  storeProduct(product:any): any {
-    return this.http.post("http://localhost:3000/products",product);
-  }
-
-  deleteProduct(pid:any):any {
-    // delete record using path param
-    return this.http.delete("http://localhost:3000/products/"+pid)
-  }
-
-   // post is use put the data
-  // 2 parameter 1st url with product id and 2nd parameter updated or existing data. 
-  updateProduct(product:any): any {
-    return this.http.put("http://localhost:3000/products/"+product.id,product);
-  }
-
 
 }
-
-
-

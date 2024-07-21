@@ -1,30 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
-import { AboutusComponent } from './aboutus/aboutus.component';
-import { ContactusComponent } from './contactus/contactus.component';
-import { FeedbackComponent } from './feedback/feedback.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { FirstComponent } from './first/first.component';
+import { SecondComponent } from './second/second.component';
+import { MyAngularService } from './my.angularservice';
+import { ProductComponent } from './product/product.component';
 import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    AboutusComponent,
-    ContactusComponent,
-    FeedbackComponent,
-    LoginComponent,
-    SignupComponent,
-    DashboardComponent
+    FirstComponent,
+    SecondComponent,
+    ProductComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,ReactiveFormsModule,HttpClientModule
+    BrowserModule,HttpClientModule
   ],
-  providers: [],
+  providers: [MyAngularService],    // provided angular service details. 
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+
