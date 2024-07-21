@@ -1,18 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {HttpClientModule} from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { TdfLoginPageComponent } from './tdf-login-page/tdf-login-page.component';
-import { MdfLoginPageComponent } from './mdf-login-page/mdf-login-page.component';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TdfLoginPageComponent,
-    MdfLoginPageComponent
+    ProductComponent
   ],
   imports: [
-    BrowserModule,FormsModule,ReactiveFormsModule
+    BrowserModule,HttpClientModule,FormsModule,ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
